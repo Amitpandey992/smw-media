@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    /* Strictness Core */
+    "strict": true, // Enables: noImplicitAny, strictNullChecks, etc.
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+
+    /* Additional Linter-like Strictness */
+    "noUnusedLocals": true,                // Error on unused local variables
+    "noUnusedParameters": true,            // Error on unused function parameters
+    "noImplicitReturns": true,             // Ensure all code paths in a function return a value
+    "noFallthroughCasesInSwitch": true,    // Prevent switch-case bugs
+    "noUncheckedIndexedAccess": true,      // Forces checking for undefined when accessing arrays/objects
+    "noImplicitOverride": true,            // Ensures 'override' keyword is used in classes
+    "noPropertyAccessFromIndexSignature": true, // Forces ['key'] syntax for dynamic properties
+
+    /* Module & Compatibility */
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* Paths */
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
