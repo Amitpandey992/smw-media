@@ -6,11 +6,11 @@ import Link from "next/link";
 import clsx from "clsx";
 
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About SMW", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
-  { name: "Contact Us", href: "#contact" },
+  { name: "Home", href: "/" },
+  { name: "About SMW", href: "/about" },
+  { name: "Services", href: "/#services" },
+  { name: "Portfolio", href: "/#portfolio" },
+  { name: "Contact Us", href: "/#contact" },
 ];
 
 export function Navbar() {

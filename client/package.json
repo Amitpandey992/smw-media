@@ -9,9 +9,11 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@base-ui/react": "^1.6.0",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "axios": "^1.18.1",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "face-api.js": "^0.22.2",
     "framer-motion": "^12.42.2",
