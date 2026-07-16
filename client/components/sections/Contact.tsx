@@ -5,6 +5,7 @@ import VariableProximity from "@/components/react-bits/VariableProximity";
 import { Send } from "lucide-react";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import GridDistortion from "@/components/react-bits/GridDistortion";
 
 export function Contact() {
   const containerRef = useRef(null);
@@ -23,8 +24,19 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 bg-background relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="py-32 px-6 bg-background relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <GridDistortion 
+          imageSrc="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=1920&q=80" 
+          grid={10} 
+          mouse={0.1} 
+          strength={0.15} 
+          relaxation={0.9} 
+          className="w-full h-full opacity-100"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-(--bg-base) via-(--bg-base)/60 to-(--bg-base)/40 z-10 pointer-events-none" />
+      </div>
+      <div className="max-w-7xl mx-auto relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <ScrollReveal>
             <div>

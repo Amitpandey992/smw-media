@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Syne } from "next/font/google";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { Toaster } from "@/components/ui/sonner";
+import SplashCursor from "@/components/react-bits/SplashCursor";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
         <CustomCursor />
         {children}
         <Toaster />
+        <SplashCursor RAINBOW_MODE={false} COLOR="#E60000" />
       </body>
     </html>
   );

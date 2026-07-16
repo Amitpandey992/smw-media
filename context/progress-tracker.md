@@ -41,6 +41,8 @@ Update this file after every meaningful implementation change.
 - Added a cinematic dark studio background image to the "Who We Are" (`AboutHero.tsx`) section to match the global premium aesthetic.
 - Replaced the standard grid in "Why Choose Us" with the `ScrollStack` component from React Bits to create an interactive 3D card stacking effect on scroll.
 - Integrated the `GlassSurface` component from React Bits to the sticky text container in the "Our Services" section to create an advanced SVG distortion effect on scroll.
+- Built a dedicated, highly animated "Portfolio" page (`/portfolio`) strictly following the global dark theme and using cinematic placeholder images with advanced hover effects.
+- Built a dedicated "Contact Us" page (`/contact`) with a framer-motion text reveal hero, fully integrated company addresses from siteContent, and a premium dark-themed form UI.
 
 ## In Progress
 - None
