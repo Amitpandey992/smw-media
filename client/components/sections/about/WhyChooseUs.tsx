@@ -12,38 +12,10 @@ import {
   CheckCircle 
 } from 'lucide-react';
 
-const reasons = [
-  { 
-    title: 'Complete Media & Branding Solutions', 
-    icon: Briefcase,
-    description: 'A holistic approach to all your branding and media needs under one roof.'
-  },
-  { 
-    title: 'Experienced & Creative Team', 
-    icon: Users,
-    description: 'Our seasoned professionals bring fresh perspectives and innovative ideas.'
-  },
-  { 
-    title: 'In-house Studio & Equipment', 
-    icon: Video,
-    description: 'State-of-the-art facilities ensuring top-notch production quality without delays.'
-  },
-  { 
-    title: 'Customized Strategies', 
-    icon: Target,
-    description: 'Tailored solutions designed specifically for your unique business goals.'
-  },
-  { 
-    title: 'High Quality Production', 
-    icon: Award,
-    description: 'Uncompromising standards in every piece of content we create.'
-  },
-  { 
-    title: 'One Stop Solution', 
-    icon: CheckCircle,
-    description: 'From ideation to execution, we handle the entire process seamlessly.'
-  }
-];
+import { whyChooseUs } from '@/lib/data/siteContent';
+
+import Waves from '@/components/react-bits/Waves';
+import ScrollStack, { ScrollStackItem } from '@/components/react-bits/ScrollStack';
 
 export default function WhyChooseUs() {
   const containerRef = useRef<HTMLHeadingElement>(null);
@@ -53,7 +25,7 @@ export default function WhyChooseUs() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.1
       }
     }
   };
@@ -68,8 +40,23 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="w-full py-16 md:py-24">
-      <div className="container mx-auto px-4 md:px-6">
+    <section className="w-full py-16 md:py-24 relative overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Waves
+          lineColor="rgba(230, 0, 0, 0.2)"
+          backgroundColor="transparent"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
+        />
+      </div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-16">
           <motion.h2 
             ref={containerRef}
@@ -100,52 +87,47 @@ export default function WhyChooseUs() {
           </motion.p>
         </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon;
-            return (
-              <motion.div 
-                key={index}
-                variants={cardVariants}
-                whileHover={{ 
-                  scale: 1.02, 
-                  borderColor: 'var(--accent-primary)',
-                  boxShadow: '0 10px 30px -10px rgba(230, 0, 0, 0.1)'
-                }}
-                className="p-8 rounded-xl border border-transparent transition-colors duration-300 flex flex-col items-start gap-4"
-                style={{ 
-                  backgroundColor: 'var(--bg-surface)', 
-                  borderColor: 'var(--border-default)' 
-                }}
+        <div className="w-full max-w-4xl mx-auto h-[600px] rounded-3xl border border-[var(--border-default)] overflow-hidden shadow-2xl relative z-20">
+          <ScrollStack
+            className="w-full h-full"
+            itemDistance={50}
+            itemScale={0.03}
+            baseScale={0.9}
+            rotationAmount={2}
+          >
+            {whyChooseUs.map((reason, index) => (
+              <ScrollStackItem 
+                key={index} 
+                itemClassName="flex flex-col items-center justify-center text-center gap-6"
               >
+                {/* We override background manually using standard styles to ensure palette matching */}
                 <div 
-                  className="p-3 rounded-lg"
-                  style={{ backgroundColor: 'rgba(230, 0, 0, 0.1)', color: 'var(--accent-primary)' }}
-                >
-                  <Icon className="w-6 h-6" strokeWidth={1.5} />
+                  className="absolute inset-0 rounded-[40px] z-0" 
+                  style={{ 
+                    backgroundColor: 'var(--bg-surface)', 
+                    border: '1px solid var(--border-default)',
+                    boxShadow: '0 10px 30px -10px rgba(230, 0, 0, 0.1)'
+                  }} 
+                />
+                
+                <div className="relative z-10 flex flex-col items-center justify-center">
+                  <div 
+                    className="p-4 rounded-full mb-4"
+                    style={{ backgroundColor: 'rgba(230, 0, 0, 0.15)', color: 'var(--accent-primary)' }}
+                  >
+                    <CheckCircle className="w-10 h-10" strokeWidth={2} />
+                  </div>
+                  <h3 
+                    className="text-2xl font-bold px-4"
+                    style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}
+                  >
+                    {reason}
+                  </h3>
                 </div>
-                <h3 
-                  className="text-xl font-bold"
-                  style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-primary)' }}
-                >
-                  {reason.title}
-                </h3>
-                <p 
-                  className="text-sm leading-relaxed"
-                  style={{ fontFamily: 'var(--font-sans)', color: 'var(--text-muted)' }}
-                >
-                  {reason.description}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+              </ScrollStackItem>
+            ))}
+          </ScrollStack>
+        </div>
       </div>
     </section>
   );

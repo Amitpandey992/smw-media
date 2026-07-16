@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Globe, Mail, Phone, MessageCircle } from "lucide-react";
+import { brandInfo, officeLocations } from "@/lib/data/siteContent";
 
 export function Footer() {
   return (
@@ -7,11 +8,16 @@ export function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="col-span-1 md:col-span-2">
           <h2 className="text-2xl font-heading font-bold text-foreground mb-4">
-            SMW Media & Entertainment
+            {brandInfo.name}
           </h2>
-          <p className="text-muted-foreground font-sans max-w-sm">
-            Creating Stories • Building Brands • Connecting Audiences. A full-service creative agency.
+          <p className="text-muted-foreground font-sans max-w-sm mb-4">
+            {brandInfo.tagline}
           </p>
+          <div className="space-y-1 text-muted-foreground font-sans text-sm">
+            <p>Phone: {brandInfo.phones.join(" / ")}</p>
+            <p>Email: {brandInfo.email}</p>
+            <p>Website: {brandInfo.website}</p>
+          </div>
           <div className="flex gap-4 mt-6">
             {[Globe, Mail, Phone, MessageCircle].map((Icon, idx) => (
               <Link
@@ -25,22 +31,15 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
-          <h3 className="font-heading font-bold text-lg mb-4 text-foreground">Bhopal Office</h3>
-          <address className="text-muted-foreground font-sans not-italic space-y-2">
-            <p>123 Creative Studio</p>
-            <p>MP Nagar, Zone 1</p>
-            <p>Bhopal, MP 462011</p>
-          </address>
-        </div>
-
-        <div>
-          <h3 className="font-heading font-bold text-lg mb-4 text-foreground">Mumbai Office</h3>
-          <address className="text-muted-foreground font-sans not-italic space-y-2">
-            <p>456 Film City Road</p>
-            <p>Goregaon East</p>
-            <p>Mumbai, MH 400065</p>
-          </address>
+        <div className="col-span-1 md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {officeLocations.map((office, idx) => (
+            <div key={idx}>
+              <h3 className="font-heading font-bold text-lg mb-4 text-foreground">{office.type}</h3>
+              <address className="text-muted-foreground font-sans not-italic">
+                {office.address}
+              </address>
+            </div>
+          ))}
         </div>
       </div>
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">

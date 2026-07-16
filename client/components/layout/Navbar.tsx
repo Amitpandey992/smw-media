@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 import Link from "next/link";
 import clsx from "clsx";
+import { brandInfo } from "@/lib/data/siteContent";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About SMW", href: "/about" },
-  { name: "Services", href: "/#services" },
-  { name: "Portfolio", href: "/#portfolio" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "Services", href: "/services" },
+  { name: "Portfolio", href: "/portfolio" },
+  { name: "Contact Us", href: "/contact" }
 ];
 
 export function Navbar() {
@@ -29,15 +30,15 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={clsx(
-        "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 flex flex-col",
         isScrolled
           ? "bg-surface/80 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-heading font-bold tracking-tighter text-foreground">
-          SMW<span className="text-primary">.</span>
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between w-full">
+        <Link href="/" className="text-2xl font-heading font-bold tracking-tighter text-foreground flex gap-2 items-center">
+          <span className="truncate">{brandInfo.name.split(" ")[0]}</span><span className="text-primary">.</span>
         </Link>
 
         <div className="hidden md:flex gap-8">

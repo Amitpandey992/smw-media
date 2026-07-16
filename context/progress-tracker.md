@@ -33,6 +33,14 @@ Update this file after every meaningful implementation change.
 - Created the frontend "Add Project" form (`/admin/portfolio/new`) allowing fully authenticated CRUD interactions.
 - Developed immersive "About Us" page featuring animated Hero, Stats grid, "Why Choose Us" bento layout, and "Our Digital Network" grid using framer-motion.
 - Extended the Homepage with "Special Opportunities for Artists" grid and "SMW News" infinite marquee sections.
+- Moved the detailed "Our Services" section to a dedicated page (`/services`) and created a lightweight Services Preview for the homepage.
+- Injected exact brochure content into global layout, About page, and Hero sections.
+- Refined all Next.js `<Image />` placeholders with specific cinematic Unsplash URLs (stage lights, film cameras, dark studios) to perfectly match the brochure's visual identity.
+- Integrated the `ElectricBorder` animated component from React Bits to enhance the Special Opportunities cards with a glowing neon border effect, matching the primary brand color.
+- Integrated the `Waves` background component from React Bits into the "Why Choose Us" section to add a dynamic, interactive fluid cursor effect across the grid background.
+- Added a cinematic dark studio background image to the "Who We Are" (`AboutHero.tsx`) section to match the global premium aesthetic.
+- Replaced the standard grid in "Why Choose Us" with the `ScrollStack` component from React Bits to create an interactive 3D card stacking effect on scroll.
+- Integrated the `GlassSurface` component from React Bits to the sticky text container in the "Our Services" section to create an advanced SVG distortion effect on scroll.
 
 ## In Progress
 - None
@@ -47,6 +55,7 @@ Update this file after every meaningful implementation change.
 - Decided to use a custom Express + Mongoose backend instead of a BaaS/Headless CMS to allow full control over the admin panel, custom Nodemailer logic, and strict Cloudinary integration.
 - Standardized all animations (scroll, text, background, images) using `react-bits` to ensure rapid development and consistent highly-animated UI.
 - Separated the project into a client/server monorepo structure for clear system boundaries.
+- Moved the detailed "Our Services" section to a completely dedicated page (`/services`) for better SEO and UX, leaving only a lightweight preview on the homepage.
 
 ## Session Notes
 - The UI needs to be heavily animated at every step and dark-themed. Ensure frontend architecture is ready for deep `react-bits` integration from day one.

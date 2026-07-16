@@ -2,6 +2,7 @@ export const servicesData = [
   {
     id: 1,
     title: "Media & Entertainment",
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=800&q=80",
     items: [
       "Feature Film Production",
       "Web Series Production",
@@ -18,6 +19,7 @@ export const servicesData = [
   {
     id: 2,
     title: "Music Production Services",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=800&q=80",
     items: [
       "Lyrics & Composition",
       "Music Production",
@@ -34,6 +36,7 @@ export const servicesData = [
   {
     id: 3,
     title: "Artist & Celebrity Management",
+    image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800&q=80",
     items: [
       "Celebrity Management",
       "Artist Representation",
@@ -48,6 +51,7 @@ export const servicesData = [
   {
     id: 4,
     title: "Digital Content Production",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
     items: [
       "YouTube Channel Management",
       "Reels & Shorts Production",
@@ -60,6 +64,7 @@ export const servicesData = [
   {
     id: 5,
     title: "Digital Marketing",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
     items: [
       "Social Media Management",
       "Meta Ads (FB & Instagram)",
@@ -73,6 +78,7 @@ export const servicesData = [
   {
     id: 6,
     title: "Branding & Creative Solutions",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=800&q=80",
     items: [
       "Logo Design",
       "Brand Identity Development",
@@ -86,6 +92,7 @@ export const servicesData = [
   {
     id: 7,
     title: "Media & Public Relations",
+    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80",
     items: [
       "Press Releases",
       "Media Coverage",
@@ -99,6 +106,7 @@ export const servicesData = [
   {
     id: 8,
     title: "Event Management",
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80",
     items: [
       "Corporate Events",
       "Award Ceremonies",
@@ -112,6 +120,7 @@ export const servicesData = [
   {
     id: 9,
     title: "Studio Services",
+    image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=800&q=80",
     items: [
       "Podcast Studio",
       "Audio Recording Studio",

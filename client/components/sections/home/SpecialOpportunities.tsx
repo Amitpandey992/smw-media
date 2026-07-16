@@ -1,9 +1,11 @@
 "use client";
+import Image from "next/image";
 
 import { motion, Variants } from "framer-motion";
 import { useRef } from "react";
 import VariableProximity from "@/components/react-bits/VariableProximity";
 import { artistOpportunities } from "@/lib/data/opportunitiesData";
+import ElectricBorder from "@/components/react-bits/ElectricBorder";
 import {
   Mic,
   Star,
@@ -114,48 +116,66 @@ export function SpecialOpportunities() {
         >
           {artistOpportunities.map((opportunity, index) => {
             const Icon = iconMap[opportunity.iconName] || Star;
+            const bgImage = opportunity.image || "https://images.unsplash.com/photo-1516280440502-65f5363e3b5e?auto=format&fit=crop&w=500&q=80";
+
             return (
               <motion.div
                 key={index}
                 variants={cardVariants}
                 whileHover={{
                   scale: 1.03,
-                  borderColor: "var(--accent-primary)",
                   boxShadow: "0 10px 30px -10px rgba(230, 0, 0, 0.15)",
                 }}
-                className="p-8 rounded-xl border border-transparent transition-all duration-300 flex flex-col items-start gap-4"
-                style={{
-                  backgroundColor: "var(--bg-surface)",
-                  borderColor: "var(--border-default)",
-                }}
+                className="relative group h-full"
               >
-                <div
-                  className="p-4 rounded-lg mb-2"
-                  style={{
-                    backgroundColor: "rgba(230, 0, 0, 0.1)",
-                    color: "var(--accent-primary)",
-                  }}
-                >
-                  <Icon className="w-6 h-6" strokeWidth={1.5} />
-                </div>
-                <h3
-                  className="text-xl font-bold leading-tight"
-                  style={{
-                    fontFamily: "var(--font-heading)",
-                    color: "var(--text-primary)",
-                  }}
-                >
-                  {opportunity.title}
-                </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    color: "var(--text-muted)",
-                  }}
-                >
-                  {opportunity.desc}
-                </p>
+                <ElectricBorder color="#e60000" speed={1} chaos={0.12} borderRadius={12} className="h-full">
+                  <div
+                    className="p-8 rounded-xl border border-transparent transition-all duration-300 flex flex-col items-start gap-4 relative overflow-hidden group h-full"
+                    style={{
+                      backgroundColor: "var(--bg-surface)",
+                    }}
+                  >
+                    <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-40 transition-opacity duration-300">
+                      <Image
+                        src={bgImage}
+                        alt={opportunity.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/60 mix-blend-multiply" />
+                    </div>
+
+                    <div className="relative z-10 flex flex-col items-start gap-4 h-full">
+                      <div
+                        className="p-4 rounded-lg mb-2"
+                        style={{
+                          backgroundColor: "rgba(230, 0, 0, 0.2)",
+                          color: "var(--accent-primary)",
+                        }}
+                      >
+                        <Icon className="w-6 h-6" strokeWidth={1.5} />
+                      </div>
+                      <h3
+                        className="text-xl font-bold leading-tight"
+                        style={{
+                          fontFamily: "var(--font-heading)",
+                          color: "var(--text-primary)",
+                        }}
+                      >
+                        {opportunity.title}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed flex-grow"
+                        style={{
+                          fontFamily: "var(--font-sans)",
+                          color: "var(--text-muted)",
+                        }}
+                      >
+                        {opportunity.desc}
+                      </p>
+                    </div>
+                  </div>
+                </ElectricBorder>
               </motion.div>
             );
           })}
